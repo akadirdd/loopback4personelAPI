@@ -1,3 +1,4 @@
+import { authenticate } from '@loopback/authentication';
 import {
   Count,
   CountSchema,
@@ -21,6 +22,7 @@ import {
 import { Unvan } from '../models/unvan.model';
 import {PersonelRepository} from '../repositories';
 
+@authenticate('jwt')
 export class PersonelUnvanController {
   constructor(
     @repository(PersonelRepository) protected personelRepository: PersonelRepository,

@@ -1,3 +1,4 @@
+import { authenticate } from '@loopback/authentication';
 import {
   Count,
   CountSchema,
@@ -19,6 +20,7 @@ import {
 import {Ofis} from '../models';
 import {OfisRepository} from '../repositories/ofis.repository';
 
+@authenticate('jwt')
 export class OfisController {
   constructor(
     @repository(OfisRepository)

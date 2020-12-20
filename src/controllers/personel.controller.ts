@@ -1,3 +1,4 @@
+import { authenticate } from '@loopback/authentication';
 import { inject } from '@loopback/core';
 import {
   Count,
@@ -22,6 +23,7 @@ import { DepartmanMaas } from '../models/departman-maas.model';
 import {PersonelRepository} from '../repositories';
 import { HesaplamaService, MAAS_HESAPLAMA_SERVICE } from '../services';
 
+@authenticate('jwt')
 export class PersonelController {
   constructor(
     @repository(PersonelRepository)

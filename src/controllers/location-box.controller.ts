@@ -1,3 +1,4 @@
+import { authenticate } from '@loopback/authentication';
 import { Application, inject } from '@loopback/core';
 import {
   Count,
@@ -24,6 +25,7 @@ import { LocationBoxOfis } from '../models/location-box-ofis.model';
 import { DepartmanRepository } from '../repositories';
 import { getQueryResult, Locationbox, queryResult } from '../services/locationbox.service';
 
+@authenticate('jwt')
 export class LocationBoxController {
   constructor(
     @repository(DepartmanRepository)
